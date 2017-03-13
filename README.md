@@ -1,6 +1,6 @@
-# Jubili
+# Accio
 
-Jubili web application made of AngularJS.
+Accio web application made of AngularJS.
 
 ## Prepare the workspace
 
