@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+// Place your settings in this file to overwrite default and user settings.
+{
+  "editor.formatOnType": true,
+  "editor.wrappingColumn": 0,
+  "eslint.enable": true,
+  "eslint.nodePath": "node_modules/eslint/lib",
+  "eslint.run": "onType"
+}
+=======
+{
+    "vsicons.presets.angular": false
+}
+>>>>>>> 7d9ce757d913b5c2c7427512fdcb4d11421b1357
