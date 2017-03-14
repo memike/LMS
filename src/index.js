@@ -14,6 +14,7 @@ require('./js/jquery.sparkline.min');
 require('./js/bootstrap.min');
 require('./js/jquery.easytabs.min');
 require('./js/excanvas.min');
+require('./js/jquery-1.7.min');
 
 require('./js/main');
 require('./css/bootstrap/bootstrap.css');
