@@ -1,39 +1,291 @@
 <style>
-  #content {
-    background-color: #000;
-    height: auto;
-    margin-top: 36px;
+  h3 {
+    color: #5C5D5E;
+    font-family: Roboto !important;
   }
 
-  #contentRight {
-    background-color: #80ffff;
+  h1 {
+    font-size: 48px;
   }
 
-  #contentLeft {
-    background-color: red;
+  h1,
+  h4 {
+    color: white;
+    font-family: Roboto !important;
   }
 
-  #footer{
-    background-color: gray;
+  .bgParallax {
+    height: 472px;
+    opacity: 0.88;
+    background-image: url(../images/wall.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .bgParallax-2 {
+    height: 397px;
+    opacity: 0.88;
+    background-image: url(../images/wall2.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .bgParallax-3 {
+    height: 502px;
+    opacity: 0.88;
+    background-image: url(../images/wall3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  #caption {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+
+  #btnParallx {
+    width: 220px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  #lesson {
+    width: 100%;
+    height: 145px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  #lessonLine {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+  }
+
+  .btnLMS {
+    color: white;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+
+  #newLMS {
+    height: 217px;
+    background-size: 368px 217px;
+  }
+
+  #footerLMS {
+    height: 78px;
+    background-color: #A7A7A7;
+  }
+
+  #footerLMS-2 {
+    height: 150px;
+    background-color: #606060;
+  }
+
+  @media (max-width:768px) {
+    #txtRespon {
+      font-size: 16px !important;
+    }
+
+    h1 {
+      font-size: 28px !important;
+    }
+
+    h4 {
+      font-size: 18px !important;
+    }
   }
 
 </style>
-<div class="row">
-  <div class="col-md-12 col-sm-12" id="content">
-    <div class="col-md-12 col-sm-12">
-      <div class="col-md-6 col-sm-6" id="contentLeft">
-         test
-      </div>
-      <div class="col-md-6 col-sm-6" id="contentRight">
-        test
-      </div>
+<div class="bgParallax">
+  <div class="col-sm-12 col-md-12" id="caption">
+    <div class="col-sm-6 col-md-6">
     </div>
-    <div class="col-md-12 col-sm-12">
-      content
-    </div>
-
-    <div class="col-md-12 col-sm-12" id="footer">
-      footer
+    <div class="col-sm-6 col-md-6">
+      <button type="button" class="btn btn-default" id="btnParallx">Start Lerning</button>
+      <br>
+      <div style="margin-top: 20px;">
+        <img src="../images/play.svg" alt="play" style="margin-top: -15px;" />
+        <span style="color:white;font-size:25px;">Watch the video</span>
+      </div>
     </div>
   </div>
 </div>
+<div class="container" style="min-height:500px">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-12">
+        <h3>Let's Start</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3 col-md-3" ng-repeat="cour in course | limitTo: limitCour">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div ng-if="cour.status == 'Start'">
+          <div class="panel-heading" id="lesson" style="background-image:url({{cour.courseImg}});"></div>
+          <div class="panel-heading" id="lessonLine" style="background-color:#72FF7D"></div>
+        </div>
+        <div ng-if="cour.status == 'Continue'">
+          <div class="panel-heading" id="lesson" style="background-image:url({{cour.courseImg}});"></div>
+          <div class="panel-heading" id="lessonLine" style="background-color:#FFEB9C"></div>
+        </div>
+        <div ng-if="cour.status == 'Stand'">
+          <div class="panel-heading" id="lesson" style="background-image:url({{cour.courseImg}});"></div>
+          <div class="panel-heading" id="lessonLine" style="background-color:#FFB7BD"></div>
+        </div>
+        <div ng-if="cour.status == 'Completed'">
+          <div class="panel-heading" id="lesson" style="background-image:url({{cour.courseImg}});"></div>
+          <div class="panel-heading" id="lessonLine" style="background-color:#99C6EC"></div>
+        </div>
+        <div ng-if="cour.status == 'Block'">
+          <div class="panel-heading" id="lesson" style="background-image:url(../images/lessonLock.png);"></div>
+          <div class="panel-heading" id="lessonLine" style="background-color:gray"></div>
+        </div>
+        <div class="panel-body" style="height:100px">
+          <talbe>
+            <tr>
+              <td><span style="float:left;font-size: 16px;color:#5C5D5E;">{{cour.name}}</span></td>
+              <td><span style="float:right">{{cour.progress}} %</span></td>
+            </tr>
+          </talbe>
+          <br>
+          <talbe style="margin-top:10px">
+            <tr>
+              <td><span style="float:left;font-size: 12px;color:#95989A;">{{cour.author}} </span></td>
+              <td>
+                <div ng-if="cour.status == 'Start'">
+                  <button type="button" class="btn btnLMS" style="float:right;background-color:#72FF7D">{{cour.status}}</button>
+                </div>
+                <div ng-if="cour.status == 'Continue'">
+                  <button type="button" class="btn btnLMS" style="float:right;background-color:#FFEB9C">{{cour.status}}</button>
+                </div>
+                <div ng-if="cour.status == 'Stand'">
+                  <button type="button" class="btn btnLMS" style="float:right;background-color:#FFB7BD">{{cour.status}}</button>
+                </div>
+                <div ng-if="cour.status == 'Completed'">
+                  <button type="button" class="btn btnLMS" style="float:right;background-color:#99C6EC">{{cour.status}}</button>
+                </div>
+                <div ng-if="cour.status == 'Block'">
+                  <button type="button" class="btn btnLMS" style="float:right;background-color:gray">{{cour.status}}</button>
+                </div>
+              </td>
+            </tr>
+          </talbe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom:20px;">
+    <div class="col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-12">
+        <a href="#"><span style="float:right;">See all</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="bgParallax-2">
+  <div class="col-sm-12 col-md-12" id="caption">
+    <div class="col-sm-6 col-md-6" id="txtRespon">
+      <h1>Desire to something useful.</h1>
+      <h4>จงปรารถนาที่จะเรียนรู้ในสิ่งที่เป็นประโยชน์อยู่เสมอ</h4>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <button type="button" class="btn btn-danger" id="btnParallx">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="min-height:500px">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h3>Achieve Your Goals</h3>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4" ng-repeat="n in News | orderBy: n.sort | limitTo: limitNews">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="newLMS" style="background-image:url({{n.courseImg}});">
+          <center><span style="color:white;line-height: 26em;">{{n.name}}</span></center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom:20px;">
+    <div class="col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-12">
+        <a href="#"><span style="float:right;">See all</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="bgParallax-3">
+  <div class="col-sm-12 col-md-12" id="caption">
+    <div class="col-sm-6 col-md-6">
+      <h1>Welcome to LMS.</h1>
+      <h4>ยินดีต้อนรับสู่โลกการเรียนรู้และการสร้างสรรค์</h4>
+      <form class="navbar-form">
+        <div class="form-group">
+          <span type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Search for Courses" style="font-size: 12px;border-radius: 0px;
+      border: 0;" />
+      </form>
+    </div>
+    <div class="col-sm-6 col-md-6"></div>
+  </div>
+</div>
+
+<div class="row" id="footerLMS">
+  <div class="col-sm-12 col-md-12">
+  </div>
+</div>
+
+<div class="row" id="footerLMS-2">
+  <div class="col-sm-12 col-md-12">
+  </div>
+</div>
+
+<button ng-click="$ctrl.topFunction()" class="circle" title="Go to top">
+	<span class="glyphicon glyphicon-menu-up"></span>
+</button>

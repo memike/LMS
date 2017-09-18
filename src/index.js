@@ -22,7 +22,6 @@ require('./css/font-awesome-4.3.0/css/font-awesome.min.css');
 require('./css/jquery-ui-1.12.1.css');
 require('./css/toastr.css');
 require('./css/style.css');
-require('./css/w3.css');
 
 angular
   .module('app', ['ui.router', 'ngStorage', 'ui.bootstrap', mainModule, pagesModule])
